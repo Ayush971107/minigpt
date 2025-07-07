@@ -11,3 +11,13 @@ with open('poems.txt', 'r', encoding = 'utf-8') as f:
 
 chars = sorted(list(set(text)))
 vocab_size = len(chars)
+
+stoi = {ch: i for i,ch in enumerate(chars)}
+itos = {i: ch for i,ch in enumerate(chars)}
+
+def encode (chars):
+  return [ stoi[ch] for ch in chars]
+
+
+def decode (indices):
+  return "".join([itos[i] for i in indices])
